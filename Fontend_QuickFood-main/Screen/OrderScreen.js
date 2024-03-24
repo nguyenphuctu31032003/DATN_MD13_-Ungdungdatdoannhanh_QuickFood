@@ -368,7 +368,7 @@ const OrderScreen = ({navigation, route}) => {
   return (
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <Image source={require('./../Image/logo_bean.png')}
+          <Image source={require('./../Image/quick.png')}
                  style={styles.logo}/>
           <Text style={styles.title}>Order Food</Text>
         </View>
