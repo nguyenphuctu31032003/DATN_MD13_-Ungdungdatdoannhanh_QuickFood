@@ -1,20 +1,19 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-  SafeAreaView,
-  Platform,
   FlatList,
+  Image,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { URL } from "../const/const";
+import {URL} from "../const/const";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const NotificationScreen = ({ item, navigation }) => {
+const NotificationScreen = ({item, navigation}) => {
   const [historyData, setHistoryData] = useState([]);
   const [dataUid, setDataUid] = useState("");
   useEffect(() => {
@@ -24,11 +23,11 @@ const NotificationScreen = ({ item, navigation }) => {
         console.log(storedUserId);
         let response;
         fetch(URL + `api/notify/${storedUserId}`)
-          .then((res) => res.json())
-          .then((dt) => {
-            response = dt.listNotify;
-            setHistoryData(response);
-          });
+        .then((res) => res.json())
+        .then((dt) => {
+          response = dt.listNotify;
+          setHistoryData(response);
+        });
         // const response = (
         //   await fetch(URL + `api/notify/${storedUserId}`)
         // ).json();
@@ -59,105 +58,106 @@ const NotificationScreen = ({ item, navigation }) => {
     fetchUserId();
   }, []);
   const handleDeital = async (item) => {
-    console.log('item',item);
+    console.log('item', item);
     // navigation.navigate("Detailhistory", { orderId: item._id });
   };
 
   console.log(historyData?.length);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Image
-          source={require("./../Image/logo_bean.png")} // Thay đổi đường dẫn ảnh
-          style={styles.logo}
-        />
-        <Text style={styles.title}>Notification Food</Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Image
+              source={require(
+                  "./../Image/logo_bean.png")} // Thay đổi đường dẫn ảnh
+              style={styles.logo}
+          />
+          <Text style={styles.title}>Notification Food</Text>
+        </View>
 
-      <FlatList
-        data={historyData}
-        showsVerticalScrollIndicator={false}
-        renderItem={({ item, index }) => {
-          return (
-            <TouchableOpacity>
-              <View
-                style={{
-                  backgroundColor: "#F2F6FD",
-                  borderBottomColor: "#DFE0EB",
-                  marginTop: 14,
-                  borderRadius: 18,
-                  marginHorizontal: 16,
-                  paddingVertical: 15,
-                }}
-                key={index}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    paddingLeft: 10,
-                    paddingTop: 15,
-                  }}
-                >
-                  <Image source={{
-                      uri: "https://cdn4.vectorstock.com/i/1000x1000/92/63/complete-order-icon-in-line-style-for-any-projects-vector-35249263.jpg",
-                    }}
-                    style={{
-                      width: 49,
-                      height: 49,
-                    }}
-                  />
-                  <View
-                    style={{
-                      justifyContent: "space-between",
-                      marginVertical: 3,
-                      marginLeft: 17,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: 14,
-                        // fontFamily: 'Bold',
-                        // fontWeight: '700',
-                        color: "#242426",
-                      }}
+        <FlatList
+            data={historyData}
+            showsVerticalScrollIndicator={false}
+            renderItem={({item, index}) => {
+              return (
+                  <TouchableOpacity>
+                    <View
+                        style={{
+                          backgroundColor: "#F2F6FD",
+                          borderBottomColor: "#DFE0EB",
+                          marginTop: 14,
+                          borderRadius: 18,
+                          marginHorizontal: 16,
+                          paddingVertical: 15,
+                        }}
+                        key={index}
                     >
-                      Payment Order
-                    </Text>
-                    <Text style={{ color: "#848688" }}>
-                      {moment(item.createdAt).format("HH:mm - DD/MM")}
-                    </Text>
-                  </View>
-                </View>
-                <View
-                  style={{
-                    height: 1,
-                    backgroundColor: "#F2F2F2",
-                    marginTop: 12,
-                  }}
-                ></View>
-                <Text
-                  style={{
-                    textAlign: "left",
-                    marginLeft: 12,
-                    marginTop: 10,
-                    fontSize: 12,
-                    color: "#747475",
-                  }}
-                  numberOfLines={3}
-                >
-                  Bạn đã đặt hàng thành công đơn hàng
-                  <Text style={{ color: "green" }}> {item._id ?? ""} </Text>
-                  với số tiền cần thanh toán
-                  <Text style={{ color: "red" }}> {item.money}VND</Text>
-                </Text>
-              </View>
-            </TouchableOpacity>
-          );
-        }}
-        keyExtractor={(item, index) => index}
-      />
-    </SafeAreaView>
+                      <View
+                          style={{
+                            flexDirection: "row",
+                            paddingLeft: 10,
+                            paddingTop: 15,
+                          }}
+                      >
+                        <Image source={{
+                          uri: "https://cdn4.vectorstock.com/i/1000x1000/92/63/complete-order-icon-in-line-style-for-any-projects-vector-35249263.jpg",
+                        }}
+                               style={{
+                                 width: 49,
+                                 height: 49,
+                               }}
+                        />
+                        <View
+                            style={{
+                              justifyContent: "space-between",
+                              marginVertical: 3,
+                              marginLeft: 17,
+                            }}
+                        >
+                          <Text
+                              style={{
+                                fontSize: 14,
+                                // fontFamily: 'Bold',
+                                // fontWeight: '700',
+                                color: "#242426",
+                              }}
+                          >
+                            Payment Order
+                          </Text>
+                          <Text style={{color: "#848688"}}>
+                            {moment(item.createdAt).format("HH:mm - DD/MM")}
+                          </Text>
+                        </View>
+                      </View>
+                      <View
+                          style={{
+                            height: 1,
+                            backgroundColor: "#F2F2F2",
+                            marginTop: 12,
+                          }}
+                      ></View>
+                      <Text
+                          style={{
+                            textAlign: "left",
+                            marginLeft: 12,
+                            marginTop: 10,
+                            fontSize: 12,
+                            color: "#747475",
+                          }}
+                          numberOfLines={3}
+                      >
+                        Bạn đã đặt hàng thành công đơn hàng
+                        <Text style={{color: "green"}}> {item._id ?? ""} </Text>
+                        với số tiền cần thanh toán
+                        <Text style={{color: "red"}}> {item.money}VND</Text>
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+              );
+            }}
+            keyExtractor={(item, index) => index}
+        />
+      </SafeAreaView>
   );
 };
 
