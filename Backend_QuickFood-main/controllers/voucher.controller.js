@@ -111,7 +111,9 @@ exports.handleDecreseVoucher = async (req, res, next) => {
   }
 };
 exports.deleteVoucher = async (req, res, next) => {
-  const id = req.params.id;
+
+const id = req.params.id;
+
   console.log(id);
   try {
     await voucherModel.voucherModel.findByIdAndDelete({ _id: id });
@@ -150,7 +152,8 @@ exports.editVoucher = async (req, res, next) => {
       quantity: Number.parseInt(req.body.quantity),
       limit: Number.parseInt(req.body.limit),
 
-      image: `https://firebasestorage.googleapis.com/v0/b/datn-de212.appspot.com/o/${nameFile}?alt=media&token=d890e1e7-459c-4ea8-a233-001825f3c1ae`,
+      image: `https://firebasestorage.googleapis.com/v0/b/quickfoot-e9b1f.appspot.com/o/${nameFile}?alt=media&token=841d0b56-4f60-4ab5-ab15-9ff2841aadee`,
+
     };
     voucherModel.voucherModel
       .findByIdAndUpdate({ _id: idVoucher }, voucher)
@@ -180,11 +183,15 @@ exports.addVoucher = async (req, res, next) => {
       quantity: Number.parseInt(req.body.quantity),
       limit: Number.parseInt(req.body.limit),
 
-      image: `https://firebasestorage.googleapis.com/v0/b/datn-de212.appspot.com/o/${nameFile}?alt=media&token=d890e1e7-459c-4ea8-a233-001825f3c1ae`,
+
+      image: `https://firebasestorage.googleapis.com/v0/b/quickfoot-e9b1f.appspot.com/o/${nameFile}?alt=media&token=841d0b56-4f60-4ab5-ab15-9ff2841aadee`,
+
     };
     voucherModel.voucherModel.create(voucher).then(() => {
       res.redirect("/listvoucher");
     });
   });
   blobWriter.end(req.file.buffer);
+
 };
+
