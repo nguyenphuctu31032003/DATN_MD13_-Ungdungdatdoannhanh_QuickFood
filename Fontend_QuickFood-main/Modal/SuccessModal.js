@@ -42,7 +42,7 @@ const SuccessModal = ({isVisible, navigation, products}) => {
   return (
       <Modal isVisible={isVisible}>
         <View style={styles.container}>
-          <Image source={require('../Image/Image/logo_bean.png')}
+          <Image source={require('../Image/Image/logo_quick.png')}
                  style={styles.image}/>
           <Text style={styles.heading}>BẠN ĐÃ ĐẶT HÀNG</Text>
           <Text style={styles.subheading}>THÀNH CÔNG</Text>

@@ -33,7 +33,7 @@ exports.editProfile = async (req, res, next) => {
   blobWriter.on("finish", () => {
     const profileRestaurant = {
       ...req.body,
-      image: `https://firebasestorage.googleapis.com/v0/b/datn-de212.appspot.com/o/${nameFile}?alt=media&token=d890e1e7-459c-4ea8-a233-001825f3c1ae`,
+      image: `https://firebasestorage.googleapis.com/v0/b/quickfoot-e9b1f.appspot.com/o/${nameFile}?alt=media&token=841d0b56-4f60-4ab5-ab15-9ff2841aadee`,
     };
     restaurantModel.restaurantModel
       .findByIdAndUpdate({ _id: id }, profileRestaurant)

@@ -69,7 +69,7 @@ const NotificationScreen = ({item, navigation}) => {
         <View style={styles.header}>
           <Image
               source={require(
-                  "./../Image/logo_bean.png")} // Thay đổi đường dẫn ảnh
+                  "./../Image/logo_quick.png")} // Thay đổi đường dẫn ảnh
               style={styles.logo}
           />
           <Text style={styles.title}>Notification Food</Text>

@@ -58,7 +58,7 @@ const HeaderHome = ({navigation}) => {
                 margin: 15,
               }}>
             <Image
-                source={require('./../Image/logo_bean.png')}
+                source={require('./../Image/logo_quick.png')}
                 style={{width: 50, height: 50}}
             />
           </TouchableOpacity>
@@ -71,7 +71,7 @@ const HeaderHome = ({navigation}) => {
               fontWeight: 'bold',
               marginStart: 15,
             }}>
-          Wellcome to BEANFOOD!
+          Wellcome to QUICKFOOD!
         </Text>
 
         <View style={{flexDirection: 'row'}}>
