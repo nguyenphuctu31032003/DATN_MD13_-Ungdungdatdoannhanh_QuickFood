@@ -127,7 +127,8 @@ const Menu = ({navigation}) => {
       <View>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{
-            flexDirection: 'column',
+            flex: 1,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 15
@@ -135,19 +136,20 @@ const Menu = ({navigation}) => {
             <TouchableOpacity onPress={() => {
               navigation.navigate('Ganban')
             }}>
-              <Image source={require('./../Image/ganban.png')}
-                     style={{width: 0.08 * width, height: 0.04 * height}}/>
+              <Image source={require('./../Image/iconsteak.jpg')}
+                     style={{width: 0.15 * width, height: 0.06 * height}}/>
             </TouchableOpacity>
 
             <Text style={{color: '#616161'}}>Món Bò</Text>
           </View>
           <View style={{
-            flexDirection: 'column',
+            flex: 1,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 40
           }}>
-            <TouchableOpacity onPress={() => {
+            {/* <TouchableOpacity onPress={() => {
               navigation.navigate('Comxuat')
             }}>
               <Image source={require('./../Image/comxuat.png')}
@@ -161,8 +163,8 @@ const Menu = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 40
-          }}>
-            <TouchableOpacity onPress={() => {
+          }}> */}
+            {/* <TouchableOpacity onPress={() => {
               navigation.navigate('BunPho')
             }}>
               <Image source={require('./../Image/noodle.png')}
@@ -176,12 +178,12 @@ const Menu = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 40
-          }}>
+          }}> */}
             <TouchableOpacity onPress={() => {
               navigation.navigate('Chicken')
             }}>
               <Image source={require('./../Image/fried_chicken.png')}
-                     style={{width: 0.08 * width, height: 0.04 * height}}/>
+                     style={{width: 0.1 * width, height: 0.05 * height}}/>
             </TouchableOpacity>
 
             <Text style={{color: '#616161'}}>Gà rán</Text>
@@ -190,7 +192,8 @@ const Menu = ({navigation}) => {
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{
-            flexDirection: 'column',
+            flex: 1,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             margin: 20
@@ -198,19 +201,20 @@ const Menu = ({navigation}) => {
             <TouchableOpacity onPress={() => {
               navigation.navigate('AnVat')
             }}>
-              <Image source={require('./../Image/snack.png')}
-                     style={{width: 0.08 * width, height: 0.04 * height}}/>
+              <Image source={require('./../Image/milk_tea.png')}
+                     style={{width: 0.1 * width, height: 0.05 * height}}/>
             </TouchableOpacity>
 
             <Text style={{color: '#616161'}}>Trà Sữa</Text>
           </View>
           <View style={{
-            flexDirection: 'column',
+            flex: 1,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 35
           }}>
-            <TouchableOpacity onPress={() => {
+            {/* <TouchableOpacity onPress={() => {
               navigation.navigate('DoUong')
             }}>
               <Image source={require('./../Image/milk_tea.png')}
@@ -224,17 +228,18 @@ const Menu = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 40
-          }}>
+          }}> */}
             <TouchableOpacity onPress={() => {
               navigation.navigate('BanhMi')
             }}>
               <Image source={require('./../Image/burger.png')}
-                     style={{width: 0.08 * width, height: 0.04 * height}}/>
+                     style={{width: 0.1 * width, height: 0.05 * height}}/>
             </TouchableOpacity>
             <Text style={{color: '#616161'}}>Bánh mì</Text>
           </View>
           <View style={{
-            flexDirection: 'column',
+            flex: 1,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             marginLeft: 40
@@ -249,7 +254,7 @@ const Menu = ({navigation}) => {
               <Image source={require('./../Image/three-dots.png')}
                      style={{width: 0.07 * width, height: 0.04 * height}}/>
             </TouchableOpacity>
-            <Text style={{color: '#616161'}}>Đồ Khác</Text>
+            <Text style={{color: '#616161'}}></Text>
 
           </View>
 
@@ -307,45 +312,47 @@ const Restaurant = ({navigation}) => {
   return (
       <View>
         <View style={{
+          
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
           marginHorizontal: 15,
           marginVertical: 8
         }}>
-          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#616161'}}>Nhà
-            hàng quanh đây</Text>
+          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#616161'}}>Restaurant Here
+                </Text>
           <TouchableOpacity
               onPress={() => navigation.navigate('AllRestaurant')}>
-            <Text>Xem tất cả</Text>
+            <Text>Restaurant</Text>
           </TouchableOpacity>
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {datarestauran.map((data, index) =>
-              <View style={{width: 250}} key={data._id}>
+              <View style={{width: 950}} key={data._id}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Restaurant',
                         {restaurant: data._id})}>
                   <View style={{marginLeft: 15}}>
                     <Image source={{uri: data.image}} style={{
-                      width: 0.58 * width,
-                      height: 0.2 * height,
+                      width: 0.95 * width,
+                      height: 0.25 * height,
                       borderTopLeftRadius: 10,
                       borderTopRightRadius: 10
                     }}/>
                   </View>
                   <View style={{
+                    flex: 1,
                     flexDirection: 'row',
                     alignItems: 'center',
                     backgroundColor: '#ADD8E6',
                     marginLeft: 15,
-                    width: 0.58 * width,
+                    width: 0.95 * width,
                     height: 0.08 * height
                   }}>
                     <View style={{flexDirection: 'column', padding: 8}}>
                       <Text style={{
                         fontWeight: 'bold',
-                        fontSize: 20,
+                        fontSize: 25,
                         color: '#000000'
                       }}>{data.name}</Text>
                       <Text style={{
@@ -423,7 +430,7 @@ const Goiymonan = ({navigation}) => {
           <Text style={{fontWeight: 'bold', fontSize: 20, color: '#616161'}}>Gợi
             ý dành cho bạn</Text>
           <TouchableOpacity onPress={() => navigation.navigate('AllProducts')}>
-            <Text>Xem tất cả</Text>
+            <Text>Restaurant</Text>
           </TouchableOpacity>
         </View>
         <ScrollView>
